@@ -1,0 +1,7 @@
+{
+    "source": "FEMA National Flood Hazard Layer",
+    "state": "Vermont",
+    "last_updated": "Wed Jul  9 13:18:18 EDT 2025",
+    "download_url": "https://hazards.fema.gov/femaportal/NFHL/Download/ProductsDownLoadServlet?DFIRMID=50&state=VERMONT&county=&fileName=NFHL_50_20241002.zip",
+    "note": "Coordinate system preserved from original FEMA data"
+}
