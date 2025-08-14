@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<head>
+  
+<title>Aletha Spang</title> <!-- Name that will show on browser tab -->
+<meta charset="utf-8">
+<link rel="stylesheet" href="style.css"> <!-- Link to CSS stylesheet -->
+
+<!-- Link to font stylesheet -->
+<!-- Open Sans- Google-->
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"> <!-- Google Font -->
+
+<!-- Adobe Font Stylesheet-->
+<link rel="stylesheet" href="https://use.typekit.net/pzf8bld.css">
+
+
+</head>
+
+<!-- Page header-->
+
+<body>
+	<header>
+        <a href="index.html">
+            <img src="AlethaFinalLogoSlim.png" alt="Aletha Spang" class="site-logo">
+        </a>
+		<nav>
+		<ul class="landing"> <!-- Link "tabs" in the upper right-->
+			    <li class="nav"><a class="nav-link" href="About.html"><span>About</span></a></li>	
+                <li class="nav"><a class="nav-link" href="Cartography.html"><span>Cartography</span></a></li>
+				<li class="nav"><a class="nav-link" href="research.html"><span>Research</span></a></li>
+				<li class="nav"><a class="nav-link" href="Teaching.html"><span>Teaching</span></a></li>
+				<li class="nav"><a class="nav-link" href="Art.html"><span>Art</span></a></li>
+			</ul>	
+		</nav>
+	</header>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow</title>
+    <style>
+        /* CSS styles for the slideshow */
+        .slideshow-container {
+            position: relative;
+            max-width: 80%;
+        }
+        
+        .slideshow-container img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+
+</head>
+
+    <!-- Title above the image -->
+    <div class="page-header">
+        <h2>Biological Illustration</h2>
+        </div>
+        <div class="page-text-container">
+            <div class="page-text">
+        </div>
+    </div>
+
+
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
+        <!-- Images -->
+        <img class="mySlides" src="Vertebrae_Edit.png" style="display: none;">
+        <img class="mySlides" src="Skull_Edit.png" style="display: none;">
+		<img class="mySlides" src="Fern_Edit.png" style="display: none;">
+        
+        <!-- Previous and Next buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+    </script>
+
+
+    <!-- Contact info at bottom-->
+ <footer>
+    <div class="footer-content">
+        <div class="left">
+            Aletha Spang <br>
+            <a href="mailto:alethaspang@gmail.com">alethaspang@gmail.com</a>
+            </div>
+        <div class="right">
+          Coded with love by Aletha <br>
+        <i>(with support from ChatGPT)</i>
+        </div>
+    </div>
+</footer>
+	
+</body>
+</html>
+
