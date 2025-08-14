@@ -1,14 +1,629 @@
-h1 {
-  font-size: 35px;
-  font-weight: normal;
-  margin-top: 5px;
+/*                                                  CSS STYLE SHEET                                                     */
+/* August 2025
+/* Coded with love by Aletha (and troubleshooting support from Claude Sonnet Large Language Model)
+
+/* -------------------------------------------------- GLOBAL SITE SETTINGS -------------------------------------------------------*/
+
+:root {
+    --primary-color: #000000;
+    --accent-color: #4169e1;
+    --hover-color: #0056b3;
+    --primary-font: "Inter", sans-serif; /* From Google */
+  }
+
+
+/* Navigation menu settings */
+header {
+    background-color: #ffffffee; 
+    font-family: var(--primary-font);
+    font-weight: 500;
+    font-size: 24px;
+    font-style: normal;
+    padding: 0.25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgb(0, 0, 0);
 }
 
-body {
-  margin: 25px;
-  background-color: rgb(240,240,240);
-  font-family: arial, sans-serif;
-  font-size: 14px;
+/* Aletha logo sizing */
+.site-logo {
+        max-height: 150px; 
+        margin-left: 20px;
+        margin-top: 20px 
+    }
+
+/* Navigation bar elements */
+nav ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-right: 50px;
+}
+
+nav ul.landing {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul.landing li {
+    margin-right: 30px;
+    padding: 5px;
+}
+
+nav ul.landing li:last-child {
+    margin-right: 0;
 }
 
 
+main {
+    margin: 50px auto;
+    text-align: center;
+}
+
+section {
+    display: flex;
+    justify-content: space-around;
+}
+
+section a img {
+    width:500px;
+    height: auto;
+    margin-bottom: 350px;
+}
+
+/*------------------------------------------------------------------ IMAGE GRIDS ----------------------------------------------*/
+.row {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(20%, 1fr)); 
+    grid-gap: 0px; 
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+/* Separate columns */
+.column {
+    width: auto;
+    max-width: 100%;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+/* Pictures within column grid */
+.column img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: block; 
+    object-fit: cover; 
+}
+
+/* Separate grid styles for index page */
+.index-page .column img {
+    opacity: 0.9; /* Transparency of images in grid */
+    transition: opacity 0.3s ease;
+}
+
+/* Change opacity on mouse hover */
+.index-page .column:hover img {
+    opacity: 0.3; 
+}
+
+/* Add overlay with text */
+.index-page .index-overlay {
+    background-color: transparent; 
+    opacity: 0; 
+    color: #000000; 
+    font-weight: 500; 
+    pointer-events: none; 
+    transition: opacity 0.3s ease;
+}
+
+.index-page .column:hover .index-overlay {
+    opacity: 1; 
+}
+/* Styles for overlay on all other pages */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    box-sizing: border-box;
+    transition: opacity 0.3s ease;
+    padding: 15px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    white-space: normal;
+    line-height: 1.2;
+}
+
+.column:hover .overlay {
+    opacity: 0.85;
+}
+
+.cart-img{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+}
+
+/* Media queries to adjust font size on smaller screens */
+@media screen and (max-width: 768px) {
+    .column img {
+        width: 100%;
+        height: auto;
+        min-height: 200px; 
+        object-fit: cover;
+    }
+    /* Still for smaller screens */
+    .overlay {
+        font-size: 18px; 
+        padding: 10px; 
+    }
+}
+
+/*------------------------------------------------------------ PAGE TEXT -------------------------------------------------------------*/
+
+/* Settings for page title (text) */
+.page-header {
+    align-items: left;
+    color:#000000;
+    font-family: "Inter", sans-serif; 
+    font-variation-settings: "wght" 500;
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Settings for page paragraph text */
+.page-text-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 0;
+    margin-right: 2%;
+}
+
+.page-text{
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 0%;
+    align-items: left;
+    font-optical-sizing: auto;
+    color:#000000;
+    font-family: "Inter", sans-serif;
+    font-weight: 350;
+    text-align: left;
+    font-size: 18px;
+    line-height: 150%;
+}
+
+/* About page has different settings to make room for circle image */
+.about-text {
+    margin-right: 32%;
+    margin-left: 5%;
+    position: relative;
+    align-items: left;
+    color:#000000;
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    text-align: left;
+    font-size: 18px;
+    margin-top: 1%;
+    line-height: 150%;
+}
+
+/* Settings for large images on pages (maps, etc.) */
+.centered-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95%;
+    width: 95%;
+}
+
+.centered-image-container {
+    display: grid;
+    place-items: center;
+    height: 75%;
+    margin-bottom: 0;
+}
+
+.centered-image-container img {
+    max-width: 95%; 
+    max-height: 95%; 
+}
+
+/* Settings for lists */
+.list-container {
+    display: flex;
+    justify-content: space-between; 
+    gap: 20px;
+  }
+  
+  .list-container div {
+    flex: 1; 
+  }
+  
+  .list-container ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+  }
+
+  .list-container p b {
+    font-weight: bold; 
+  }
+  
+  .list-container p {
+    font-weight: 350;
+  }
+
+  /* List specific to about page */
+  .software-list p,
+  .languages-list p {
+      font-weight: 300;
+  }
+
+/* Settings for circle image */
+.circle-image-container {
+    position: absolute; 
+    top: 35%; 
+    right: 20%; 
+    width: 150px; 
+    height: 150px; 
+    float: right;
+}
+
+.circle-image {
+    width: 250%; 
+    height: 250%; 
+    border-radius: 50%; 
+    object-fit: cover; 
+}
+
+/* Styling for hyperlinks */
+a {
+    color: #4169e1;
+}
+
+/* Styling for when cursor hovers over hyperlinks */
+a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+/*-------------------------------------------------------- IMAGE SLIDESHOW ------------------------------------------------------------
+
+/* Create a slideshow of images */
+.slideshow-container {
+    position: relative;
+    max-width: 65%; 
+    margin: 0 auto; /* This centers the container */
+    padding-top: 1%;
+    padding-right: 80px; 
+    padding-left: 80px; 
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.slideshow-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto; 
+}
+
+/* Keep images at a specific width and centered */
+.slideshow-container .mySlides {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    object-fit: contain; 
+}
+
+/* Settings for arrow buttons on slideshow */
+.slideshow-container .prev, .slideshow-container .next {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: rgb(0, 0, 0); 
+    border-radius: 5px; /* Rounds corners */
+    padding: 10px; 
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    z-index: 10;
+}
+
+/* Previous Button */
+.slideshow-container .prev {
+    left: -60px; 
+}
+
+/* Next button */
+.slideshow-container .next {
+    right: -100px; 
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    padding: 16px;
+    margin-top: 0;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* -------------------------------------------------------------- PDF VIEWER -------------------------------------------------------------*/
+
+/* PDF viewer in landscape mode */
+#pdf-viewer {
+    text-align: center;
+    margin: 20px;
+    font-family: "Inter", sans-serif;
+    font-size: 0.85vw;
+    position: relative;
+}
+
+/* PDF viewer in portrait mode */
+/* This controls the placement of the arrows */
+#pdf-viewer-cv {
+    text-align: center;
+    margin: 20px auto; /* This centers the viewer container */
+    font-family: "Inter", sans-serif;
+    font-size: 0.85vw;
+    position: relative;
+    width: 100%; 
+    max-width: 90vw; 
+    background-color: white;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* PDF viewer canvas */
+#canvas-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    background-color: white;
+    position: relative;
+  }
+
+/* Fullscreen window for PDFs */
+#pdf-viewer:fullscreen {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000; 
+}
+
+#pdf-render {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100vh;
+    object-fit: contain;
+    transform: scale(1.5); /* scales up PDF content (careful it will overlap other elements */         
+    transform-origin: center; 
+    margin-top: 200px; 
+    margin-bottom: 100px; 
+}
+
+/* Arrow icons in PDF viewer */
+.pdf-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(-50%);
+    pointer-events: none; 
+}
+
+/* Icon used as the previous/next button icons */
+.arrow-icon {
+    pointer-events: auto; 
+    cursor: pointer;
+    width: 40px; 
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+    border-radius: 50%; /* Makes button circular */
+    padding: 5px;
+}
+
+#prev-page {
+    left: 1%;
+}
+
+#next-page {
+    right: 1%;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Settings for icon to toggle fullscreen */
+#fullscreen-icon {
+    position: absolute;
+    top: 2%; 
+    right: 2%;
+    width: 24px; 
+    height: 24px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Settings for PDF download button */
+#download-pdf {
+    background-color: #e0dede; 
+    color: rgb(0, 0, 0); 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    font-family: 'Open Sans', sans-serif; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#download-pdf:hover {
+    background-color: #0056b3; 
+    transform: translateY(-2px); 
+}
+
+#download-pdf:active {
+    background-color: #004494; 
+    transform: translateY(0); 
+}
+
+.download-button-container {
+    text-align: center; 
+    margin-bottom: 20px; 
+}
+
+#pdf-viewer-portrait {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#pdf-render-portrait {
+    max-width: 100%;
+    margin: 20px 0;
+}
+
+.pdf-controls {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.pdf-controls .arrow-icon {
+    cursor: pointer;
+    margin: 0 10px;
+    width: 24px;
+    height: 24px;
+}
+
+#fullscreen-icon-portrait {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
+/* ---------------------------------------------------------- FOOTER -----------------------------------------------------------------
+
+/* Settings for text in footer depending on which side it's aligned */
+.left {
+    color: white;
+    flex: 1;
+    text-align: left;
+}
+
+.left a {
+    color: #D3D3D3; 
+    text-decoration: none; /* removes default underline w/ link */
+}
+
+.left a:hover {
+    color: gray; 
+}
+
+/* Settings for website footer */
+footer {
+    background-color: #ffffff; 
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif; 
+    font-weight: 500;
+    font-size: 14px;
+    padding-left: 2%;
+    margin-top: 5%;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1%;
+    line-height: 1.4;
+    box-sizing: border-box;
+    border-top: 1px solid black; /* Line separating footer */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Settings for footer alignment */
+.right {
+    color: rgb(0, 0, 0);
+    flex: 1;
+    text-align: right;
+}
+
+.right a {
+    color: rgb(0, 0, 0); 
+    text-decoration: none; 
+}
+
+.right a:hover {
+    color: gray; 
+}
