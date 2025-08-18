@@ -1,0 +1,126 @@
+<!DOCTYPE <html>
+<head>
+
+<!-- Coded with love by Aletha (and troubleshooting support from Claude Sonnet Large Language Model)-->
+<!-- August 2025-->
+  
+<title>Aletha Spang</title> <!-- Name for browser tab -->
+<meta charset="utf-8">
+<link rel="stylesheet" href="style.css"> <!-- Link to CSS stylesheet -->
+
+<!-- Link to font stylesheet -->
+<!-- Open Sans- Google-->
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"> <!-- Google Font -->
+
+<!-- Adobe fontsheet- just in case (not using)-->
+<link rel="stylesheet" href="https://use.typekit.net/pzf8bld.css">
+
+
+<!-- Link to PDF.js library (created by Mozilla)-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+
+</head>
+
+<!-- Page header-->
+
+<body>
+	<header>
+
+    <!--Link logo with homepage-->
+        <a href="index.html">
+            <img src="AlethaFinalLogoSlim.png" alt="Aletha Spang" class="site-logo">
+        </a>
+		<nav>
+		<ul class="landing"> <!-- Link "tabs" in the upper right-->	
+                <li class="nav"><a class="nav-link" href="CV.html"><span>CV</span></a></li>
+                <li class="nav"><a class="nav-link" href="Cartography.html"><span>Cartography</span></a></li>
+				<li class="nav"><a class="nav-link" href="research.html"><span>Research</span></a></li>
+				<li class="nav"><a class="nav-link" href="Teaching.html"><span>Teaching</span></a></li>
+				<li class="nav"><a class="nav-link" href="Art.html"><span>Art</span></a></li>
+                <li class="nav"><a class="nav-link" href="About.html"><span>About</span></a></li>
+			</ul>	
+		</nav>
+	</header>
+
+    <!-- Page title -->
+    <div class="page-header">
+        <h2>Curriculum Vitae</h2>
+    </div>
+
+     <!-- Download button for PDF viewer (allows users to download PDF to local computer)-->
+ <div class="download-button-container">
+    <a href="Aletha_Spang_CV_2025.pdf" download>
+        <button id="download-pdf">Download PDF</button>
+    </a>
+ </div>
+
+    <!-- Creates PDF viewer (credit: Mozilla)-->
+    <div id="pdf-viewer-cv">
+        <div>
+            <span>Page: <span id="page-num"></span> / <span id="page-count"></span></span>
+        </div>
+        <div style="position: relative;">
+            <canvas id="pdf-render"></canvas>
+            <img id="fullscreen-icon" src="full-screen.png" alt="Fullscreen Toggle" />
+            <div class="pdf-controls">
+                <img id="prev-page" src="left-arrow.png" alt="Previous Page" class="arrow-icon" />
+                <img id="next-page" src="right-arrow.png" alt="Next Page" class="arrow-icon" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Reading from separate JavaScript file -->
+    <!--(made copy for CV specifically)-->
+     <script src="pdf-viewer-cv.js"></script>
+     <script>
+         document.getElementById('fullscreen-icon').addEventListener('click', function() {
+             const pdfViewer = document.getElementById('pdf-viewer-cv');
+             if (document.fullscreenElement) {
+                 document.exitFullscreen();
+             } else if (pdfViewer.requestFullscreen) {
+                 pdfViewer.requestFullscreen();
+             } else if (pdfViewer.mozRequestFullScreen) { 
+                 pdfViewer.mozRequestFullScreen();
+             } else if (pdfViewer.webkitRequestFullscreen) {
+                 pdfViewer.webkitRequestFullscreen();
+             } else if (pdfViewer.msRequestFullscreen) { 
+                 pdfViewer.msRequestFullscreen();
+             }
+         });
+ 
+         document.addEventListener('fullscreenchange', function() {
+             resizeCanvas();
+         });
+ 
+         function resizeCanvas() {
+             const canvas = document.getElementById('pdf-render');
+             const container = document.getElementById('pdf-viewer-cv');
+             if (document.fullscreenElement) {
+                 canvas.width = container.clientWidth;
+                 canvas.height = container.clientHeight;
+             } else {
+                 canvas.width = 800; 
+                 canvas.height = 600;
+             }
+             renderPage(currentPage);
+         }
+ 
+         document.getElementById('prev-page').addEventListener('click', showPrevPage);
+         document.getElementById('next-page').addEventListener('click', showNextPage);
+     </script>  
+     
+
+
+<!-- Contact info at bottom-->
+<footer>
+    <div class="footer-content">
+        <div class="right">
+            Aletha Spang, 2025 <br>
+            <a href="mailto:alethaspang@gmail.com">alethaspang@gmail.com</a>
+            </div>
+    </div>
+</footer>
+
+</body>
+</html>
+       
