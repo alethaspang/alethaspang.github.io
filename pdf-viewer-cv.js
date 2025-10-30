@@ -7,7 +7,7 @@ if (pdfjsLib) {
     console.error('PDF.js library is not loaded');
 }
 // Path to the PDF file
-const pdfPath = 'Aletha_Spang_CV_2025_2.pdf';
+const pdfPath = 'AlethaSpang_CV_2025_2.pdf';
 let pdfDoc = null,
     pageNum = 1,
     pageRendering = false,
